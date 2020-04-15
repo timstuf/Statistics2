@@ -49,6 +49,10 @@ public class Solution {
     }
 
     public void task3(double[] x, int[] n, double alpha) {
+        System.out.println(" _____________________________________________");
+        System.out.println(" ________________TASK 3_______________________");
+        System.out.println(" _____________________________________________");
+        System.out.println();
         for (int i = 0; i < x.length; i++) {
             double v = x[i];
             if (i == 0) {
@@ -71,6 +75,8 @@ public class Solution {
         int K = x.length;
         double[] p = new double[x.length];
         Arrays.fill(p, 1.0/K);
+        System.out.printf("\npi' = 1 / %d = %.2f\n", K, 1/(double)K);
+        System.out.printf("ni' = %.2f * %d = %.2f\n\n", 1 / (double)K, N, 1 / (double)K * N);
         for (int i = 0; i < p.length; i++) {
             double v = p[i];
             if (i == 0) {
@@ -90,7 +96,7 @@ public class Solution {
                 System.out.printf(" %8s |", v);
             }
         }
-        System.out.println();
+        System.out.println("\n");
 
         double[] answer = new double[x.length];
         for (int i = 0; i < x.length; i++) {
@@ -98,6 +104,7 @@ public class Solution {
             System.out.printf("(%d - %.3f)^2 / %.3f = %.2f\n", n[i], nsh[i], nsh[i], answer[i]);
         }
         double kNabl = DoubleStream.of(answer).sum();
+        System.out.printf("K набл = %.3f\n\n", kNabl);
         System.out.printf("Посмотрите на таблицу распределения ХиКвадрат. Число степеней свободы равно %d. \n" +
                 "Уровень значимости равен %.2f.\nВведите число на пересечении, РАЗДЕЛИТЕЛЬ - ЗАПЯТАЯ \n", K-1, alpha);
         double kKr = scanner.nextDouble();
