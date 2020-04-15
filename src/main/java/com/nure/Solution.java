@@ -111,13 +111,22 @@ public class Solution {
         System.out.println(" _____________________________________________");
         System.out.println(" ___________________TASK 2____________________");
         System.out.println(" _____________________________________________");
+        System.out.println();
+        System.out.printf("H0: D = %.1f\n", dispersionExpected);
+        System.out.printf("H1: D не равно %.1f\n\n", dispersionExpected);
         double KN=((n-1)*dispersionCounted)/dispersionExpected;
-        System.out.printf("Посмотрите на таблицу Хи-распределения, найдите уровень значимости 1-(а/2) %.3f и степеней свободы (n-1) - %d.(Для левого края)\n" +
+        System.out.printf("          (%d - 1) * sqrt(%.3f)\n", n, dispersionCounted);
+        System.out.printf("K nabl = ------------------------------ = %.3f\n", KN);
+        System.out.printf("               sqrt(%.3f)    \n\n", dispersionExpected);
+        System.out.printf("Посмотрите на таблицу Хи-распределения, найдите уровень значимости 1-(аlpha/2) = %.3f и степеней свободы (n-1) = %d.(Для левого края)\n" +
                 "(РАЗДЕЛИТЕЛЬ - ЗАПЯТАЯ)\n", (1-alpha/2), n-1);
         double XL = scanner.nextDouble();
-        System.out.printf("Посмотрите на таблицу Хи-распределения, найдите уровень значимости (а/2) %.3f и степеней свободы (n-1) - %d.(Для правого края)\n" +
+        System.out.printf("Кр л = %.3f\n\n", XL);
+        System.out.printf("Посмотрите на таблицу Хи-распределения, найдите уровень значимости (аlpha/2) = %.3f и степеней свободы (n-1) = %d.(Для правого края)\n" +
                 "(РАЗДЕЛИТЕЛЬ - ЗАПЯТАЯ)\n", (alpha/2), n-1);
         double XR = scanner.nextDouble();
+        System.out.printf("Кр п = %.3f\n\n", XR);
+
         System.out.printf("Введенные данные: для левого края (Кл): %.2f, для правого края (Кп) %.2f\n", XL, XR);
         System.out.printf("Чекнем неравнество: Кл < Кн < Кп\n" +
                 "В нашем случае %.2f < %.2f < %.2f\n" +
@@ -125,10 +134,10 @@ public class Solution {
                 "Если оба неравенства выполняются, то наше предположение\n" +
                 " о том, что дисперсия ген. совокупности\n" +
                 "равна %.2f согласуется с єксперемент. данными, \n" +
-                "тоесть стат. гипотеза о равенстве принимается\n" +
+                "тоесть стат. гипотеза H0: D = %.2f о равенстве принимается\n" +
                 " _____________________________________________\n" +
                 "Логично предположить, что если хотя бы одно из неравенств\n" +
-                "не выполняется, то выводы противоположные", XL,KN,XR, (float)dispersionExpected);
+                "не выполняется, то стат. гипотеза H0: D = %.2f о равенстве не принимается\n", XL,KN,XR, (float)dispersionExpected, dispersionExpected, dispersionExpected);
     }
 
 }
